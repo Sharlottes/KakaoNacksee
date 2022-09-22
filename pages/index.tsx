@@ -18,6 +18,10 @@ const Home: NextPage = () => {
       content: {
         title: '선착순 선물 게임을 시작합니다! 기회는 단 10분간, 선착순 2명에게!',
         imageUrl: `${router.pathname}/images/giftTitle.png`,
+        link: {
+          mobileWebUrl: `${router.pathname}/trolled`,
+          webUrl: `${router.pathname}/trolled`,
+        },
       },
       buttons: [
         {
