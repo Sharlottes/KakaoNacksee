@@ -4,14 +4,18 @@ import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Home: NextPage = () => {
+  const router = useRouter();
+  if(router.query['redirect']) router.push({pathname: router.query['redirect'].toString()});
   const [redirectUrl, setRedirectUrl] = useState("https://kakao-nacksee.vercel.app/trolled")
   const [duration, setDuration] = useState("10분간")
   const [maxMembers, setMaxMembers] = useState(2)
   const [Kakao, setKakao] = useState<typeof window.Kakao>(null)
   useEffect(()=>{
     setKakao(window.Kakao);
+    if(router.query['redirect']) router.push({pathname: router.query['redirect'].toString()});
   }, []);
 
   const share = () => {
@@ -22,16 +26,16 @@ const Home: NextPage = () => {
         imageUrl: `https://kakao-nacksee.vercel.app/images/giftTitle.png`,
         imageWidth: 800, imageHeight: 600,
         link: {
-          mobileWebUrl: redirectUrl,
-          webUrl: redirectUrl,
+          mobileWebUrl: "/?redirect="+redirectUrl,
+          webUrl: "/?redirect="+redirectUrl,
         },
       },
       buttons: [
         {
           title: '지금 달려가기',
           link: {
-            mobileWebUrl: redirectUrl,
-            webUrl: redirectUrl,
+            mobileWebUrl: "/?redirect="+redirectUrl,
+            webUrl: "/?redirect="+redirectUrl,
           },
         },
       ],
