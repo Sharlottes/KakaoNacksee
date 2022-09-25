@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const Home: NextPage = () => {
   const [redirectUrl, setRedirectUrl] = useState("https://kakao-nacksee.vercel.app/trolled")
-  const [duration, setDuration] = useState("10분")
+  const [duration, setDuration] = useState("10분간")
   const [maxMembers, setMaxMembers] = useState(2)
   const [Kakao, setKakao] = useState<typeof window.Kakao>(null)
   useEffect(()=>{
@@ -50,14 +50,14 @@ const Home: NextPage = () => {
       <Stack direction="column" spacing="10px" sx={{ width: 'max(300px, 30%)'}}>
         <TextField label="Redirect Url" onChange={(e => setRedirectUrl(e.target.value))} value={redirectUrl} variant="standard" />
         <div style={{display: 'flex'}}>
-          <TextField sx={{marginRight: '5px'}} label="Amount" type='number' onChange={(e => setMaxMembers(Number(e.target.value)))} value={maxMembers} variant="standard" />
-          <TextField sx={{marginLeft: '5px'}} label="Duration" onChange={(e => setDuration(`${Number(e.target.value.replaceAll(/\D/g, ""))%60}분`))} value={duration} variant="standard" />
+          <TextField sx={{marginRight: '5px'}} label="Amount" placeholder={maxMembers.toString()} type='number' onChange={(e => setMaxMembers(Number(e.target.value)))} value={maxMembers||""} variant="standard" />
+          <TextField sx={{marginLeft: '5px'}} label="Duration" placeholder={duration} onChange={(e => setDuration(e.target.value))} value={duration} variant="standard" />
         </div>
       </Stack>
 
       <Box sx={{ width: '250px', borderRadius: '15px', marginLeft: '50px' }}>
         <img src='/images/giftTitle.png' width='250px' style={{ borderRadius: '15px 15px 0px 0px' }}/>
-        <Typography variant='body2' sx={{marginLeft: '10px', marginRight: '10px', fontSize: 12}}>선착순 선물 게임을 시작합니다! 기회는 단 {duration}간, 선착순 {maxMembers}명에게!</Typography>
+        <Typography variant='body2' sx={{marginLeft: '10px', marginRight: '10px', fontSize: 12}}>선착순 선물 게임을 시작합니다! 기회는 단 {duration}, 선착순 {maxMembers}명에게!</Typography>
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
           <Link target="_blank" href={redirectUrl}>
             <Button color="inherit" sx={{width: '95%', backgroundColor: "#F5F5F5", color: 'black', border: 'none'}} variant='outlined'>
