@@ -26,16 +26,16 @@ const Home: NextPage = () => {
         imageUrl: `https://kakao-nacksee.vercel.app/images/giftTitle.png`,
         imageWidth: 800, imageHeight: 600,
         link: {
-          mobileWebUrl: "/?redirect="+redirectUrl,
-          webUrl: "/?redirect="+redirectUrl,
+          mobileWebUrl: "https://kakao-nacksee.vercel.app/?redirect="+redirectUrl,
+          webUrl: "https://kakao-nacksee.vercel.app/?redirect="+redirectUrl,
         },
       },
       buttons: [
         {
           title: '지금 달려가기',
           link: {
-            mobileWebUrl: "/?redirect="+redirectUrl,
-            webUrl: "/?redirect="+redirectUrl,
+            mobileWebUrl: "https://kakao-nacksee.vercel.app/?redirect="+redirectUrl,
+            webUrl: "https://kakao-nacksee.vercel.app/?redirect="+redirectUrl,
           },
         },
       ],
