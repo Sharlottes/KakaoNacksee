@@ -9,7 +9,7 @@ class MyDocument extends Document {
               src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js" 
               integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" 
               crossOrigin="anonymous" 
-              async
+              defer
             />
             <link
               rel="stylesheet"
