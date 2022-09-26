@@ -42,11 +42,11 @@ const Home: NextPage = () => {
   <Container>
     <Typography variant="h2" sx={{fontWeight: 'bold'}}>Kakaolink Sender</Typography>
     <Typography variant="body1" sx={{marginTop: '10px'}}>순수한 마음으로 선물을 좋아하는 사람들에게 가짜 선착순 선물을 보내고, 기쁜 마음으로 달려들 그들의 뒤통수를 시원하게 후려쳐보세요! </Typography> 
-    <Button variant="outlined" color="primary" onClick={share} sx={{marginTop: '30px'}}>저지르기!</Button>
+    <Button variant="outlined" color="primary" onClick={share} sx={{margin: '30px', marginLeft: 0}}>저지르기!</Button>
     
     <Divider textAlign='left'><Typography sx={{fontWeight: 'bold'}}>세부설정</Typography></Divider>
 
-    <div style={{display: 'flex'}}>
+    <div style={{display: 'flex', marginTop: '15px'}}>
       <Stack direction="column" spacing="10px" sx={{ width: 'max(300px, 30%)'}}>
         <TextField label="Redirect Url" onChange={(e => setRedirectUrl(e.target.value))} value={redirectUrl} variant="standard" />
         <div style={{display: 'flex'}}>
