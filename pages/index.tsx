@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Stack, TextField, Typography } from '@mui/material'
+import { Box, Button, Divider, Grid, Stack, TextField, Typography } from '@mui/material'
 import { Container } from '@mui/system'
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
@@ -46,34 +46,37 @@ const Home: NextPage = () => {
     
     <Divider textAlign='left'><Typography sx={{fontWeight: 'bold'}}>세부설정</Typography></Divider>
 
-    <div style={{display: 'flex', marginTop: '15px'}}>
-      <Stack direction="column" spacing="10px" sx={{ width: 'max(300px, 30%)'}}>
-        <TextField label="Redirect Url" onChange={(e => setRedirectUrl(e.target.value))} value={redirectUrl} variant="standard" />
-        <div style={{display: 'flex'}}>
-          <TextField sx={{marginRight: '5px'}} label="Amount" placeholder={maxMembers.toString()} type='number' onChange={(e => setMaxMembers(Number(e.target.value)))} value={maxMembers||""} variant="standard" />
-          <TextField sx={{marginLeft: '5px'}} label="Duration" placeholder={duration} onChange={(e => setDuration(e.target.value))} value={duration} variant="standard" />
-        </div>
-      </Stack>
-
-      <Box sx={{ width: '250px', borderRadius: '15px', marginLeft: '50px' }}>
-        <img src='/images/giftTitle.png' width='250px' style={{ borderRadius: '15px 15px 0px 0px' }}/>
-        <Typography variant='body2' sx={{marginLeft: '10px', marginRight: '10px', fontSize: 12}}>선착순 선물 게임을 시작합니다! 기회는 단 {duration}, 선착순 {maxMembers}명에게!</Typography>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-          <Link target="_blank" href={redirectUrl}>
-            <Button color="inherit" sx={{width: '95%', backgroundColor: "#F5F5F5", color: 'black', border: 'none'}} variant='outlined'>
-              <Typography sx={{fontSize: 12}}>지금 달려가기</Typography>
-            </Button>
-          </Link>
-        </div>
-        <div style={{ marginTop: '10px', marginLeft: '10px', marginRight: '10px', display: 'flex', justifyContent: 'space-between'}}>
+    <Grid container spacing={5} style={{ marginTop: '15px'}}>
+      <Grid item>
+        <Stack direction="column" spacing="10px" sx={{ width: 'max(300px, 30%)'}}>
+          <TextField label="Redirect Url" onChange={(e => setRedirectUrl(e.target.value))} value={redirectUrl} variant="standard" />
           <div style={{display: 'flex'}}>
-            <img src='/images/kagift.png' width='12px' height='12px' style={{border: 'solid 2px lightGray', borderRadius: '15px'}} />
-            <Typography sx={{color: '#999999', fontSize: 11, marginLeft: '5px' }}>선물 바로가기</Typography>
+            <TextField sx={{marginRight: '5px'}} label="Amount" placeholder={maxMembers.toString()} type='number' onChange={(e => setMaxMembers(Number(e.target.value)))} value={maxMembers||""} variant="standard" />
+            <TextField sx={{marginLeft: '5px'}} label="Duration" placeholder={duration} onChange={(e => setDuration(e.target.value))} value={duration} variant="standard" />
           </div>
-          <ArrowForwardIosRoundedIcon sx={{color: '#999999', width: '12px', height: '12px'}}/>
-        </div>
-      </Box>
-    </div>
+        </Stack>
+      </Grid>
+      <Grid item>
+        <Box sx={{ width: '250px', borderRadius: '15px', marginLeft: '20px' }}>
+          <img src='/images/giftTitle.png' width='250px' style={{ borderRadius: '15px 15px 0px 0px' }}/>
+          <Typography variant='body2' sx={{marginLeft: '10px', marginRight: '10px', fontSize: 12}}>선착순 선물 게임을 시작합니다! 기회는 단 {duration}, 선착순 {maxMembers}명에게!</Typography>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+            <Link target="_blank" href={redirectUrl}>
+              <Button color="inherit" sx={{width: '95%', backgroundColor: "#F5F5F5", color: 'black', border: 'none'}} variant='outlined'>
+                <Typography sx={{fontSize: 12}}>지금 달려가기</Typography>
+              </Button>
+            </Link>
+          </div>
+          <div style={{ marginTop: '10px', marginLeft: '10px', marginRight: '10px', display: 'flex', justifyContent: 'space-between'}}>
+            <div style={{display: 'flex'}}>
+              <img src='/images/kagift.png' width='12px' height='12px' style={{border: 'solid 2px lightGray', borderRadius: '15px'}} />
+              <Typography sx={{color: '#999999', fontSize: 11, marginLeft: '5px' }}>선물 바로가기</Typography>
+            </div>
+            <ArrowForwardIosRoundedIcon sx={{color: '#999999', width: '12px', height: '12px'}}/>
+          </div>
+        </Box>
+      </Grid>
+    </Grid>
   </Container>
   )
 }
