@@ -4,7 +4,6 @@ import type { NextPage } from 'next'
 
 const RedirectPage: NextPage = () => {
     const router = useRouter();
-    router.push({pathname: (router.query['redirect']||"/").toString()});
 
     useEffect(()=>{
         router.push({pathname: (router.query['redirect']||"/").toString()});
