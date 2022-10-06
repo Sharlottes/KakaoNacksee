@@ -6,7 +6,7 @@ const RedirectPage: NextPage = () => {
     const router = useRouter();
 
     useEffect(()=>{
-        router.push({pathname: (router.query['redirect']||"/").toString()});
+        window.open(router.query['redirect']?.toString());
     }, []);
 
     return <>리다이랙팅중...</>
