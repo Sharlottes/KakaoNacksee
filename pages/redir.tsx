@@ -6,9 +6,7 @@ const RedirectPage: NextPage = () => {
     const router = useRouter();
 
     useEffect(()=>{
-        console.log(router.asPath.match(new RegExp(`[&?]redirect=(.*)(&|$)`))?.[1]);
-
-        router.push({pathname: (
+        router.replace({pathname: (
             router.query['redirect'] || 
             router.asPath.match(new RegExp(`[&?]redirect=(.*)(&|$)`))?.[1] || 
             "/").toString()});
