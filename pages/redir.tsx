@@ -6,7 +6,12 @@ const RedirectPage: NextPage = () => {
     const router = useRouter();
 
     useEffect(()=>{
-        window.open(router.query['redirect']?.toString());
+        console.log(router.asPath.match(new RegExp(`[&?]redirect=(.*)(&|$)`))?.[1]);
+
+        router.push({pathname: (
+            router.query['redirect'] || 
+            router.asPath.match(new RegExp(`[&?]redirect=(.*)(&|$)`))?.[1] || 
+            "/").toString()});
     }, []);
 
     return <>리다이랙팅중...</>
