@@ -1,6 +1,6 @@
 {
   "name": "nacksee",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,6 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
     "dotenv": "^16.0.3",
     "next": "12.3.1",

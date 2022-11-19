@@ -1,11 +1,6 @@
 import type { AppProps } from 'next/app'
-import Head from 'next/head';
-
-declare global {
-  interface Window {
-    Kakao: any;
-  }
-}
+import Head from 'next/head'
+import 'public/global.css'
 
 require('dotenv').config();
 

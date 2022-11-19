@@ -1,18 +1,21 @@
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useRouter } from 'next/router'
+import React from 'react'
 import type { NextPage } from 'next'
 
 const RedirectPage: NextPage = () => {
     const router = useRouter();
 
-    useEffect(()=>{
-        router.replace({pathname: (
-            router.query['redirect'] || 
-            router.asPath.match(new RegExp(`[&?]redirect=(.*)(&|$)`))?.[1] || 
-            "/").toString()});
-    }, []);
+    React.useEffect(() => {
+        router.replace({
+            pathname: (
+                router.query['redirect'] ||
+                router.asPath.match(new RegExp(`[&?]redirect=(.*)(&|$)`))?.[1] ||
+                "/"
+            ).toString()
+        });
+    }, [router]);
 
-    return <>리다이랙팅중...</>
+    return <>리다이렉팅중...</>
 }
 
 export default RedirectPage;
